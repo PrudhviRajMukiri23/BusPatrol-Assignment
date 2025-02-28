@@ -1,0 +1,31 @@
+{
+  "name": "buspatrol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "allure": "^3.0.0-beta.9",
+    "node-ts": "^8.0.0",
+    "playwright": "^1.50.1",
+    "playwright-core": "^1.50.1",
+    "undici-types": "^6.20.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.5"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrudhviRajMukiri23/BusPatrol-Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PrudhviRajMukiri23/BusPatrol-Assignment/issues"
+  },
+  "homepage": "https://github.com/PrudhviRajMukiri23/BusPatrol-Assignment#readme"
+}
