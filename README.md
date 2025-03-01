@@ -9,8 +9,9 @@
 - allure [https://www.npmjs.com/package/allure]
 <!-- - multiple cucumber html reporter [https://github.com/WasiqB/multiple-cucumber-html-reporter] -->
 - ts-node [https://www.npmjs.com/package/node-ts]
-- k6 [https://grafana.com/docs/k6/latest/set-up/install-k6/]
-
+- k6 Grafana [https://grafana.com/docs/k6/latest/set-up/install-k6/]
+- k6 Grafana node package [https://www.npmjs.com/package/k6]
+- xk6 - [https://k6.io/blog/extending-k6-with-xk6/]
 ### Actions Points Covered
 
 1. Added the **functional_tests** and **performance_tests** test cases.
@@ -21,3 +22,6 @@
 6. **Reports** and **traces** generated and published in pipeline.
 7. Custom **logging** and **Error handling** were implemented.
 8. Implemented the feature to run test in **browserstack** and **lambdatest**.
+
+
+![alt text](image.png)
