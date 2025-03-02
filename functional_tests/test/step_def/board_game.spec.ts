@@ -1,13 +1,15 @@
-import { Given, When, Then } from "@cucumber/cucumber"
+import { Given, When, Then, setDefaultTimeout } from "@cucumber/cucumber"
 import { fixtures } from "../hooks/fixtures"
 import BoardGame from "../../src/pages/board_game";
 import Asserts from "../../src/playwright_actions/asserts";
 
 let boardGameInstance: BoardGame
 
+setDefaultTimeout(60*1000)
 Given('When I travel to {string} as a guest user', async function (string: string) {
-    await fixtures.page.goto(string)
     boardGameInstance = new BoardGame()
+    await boardGameInstance.goToUrl(fixtures.page, string)
+    
 });
 
 Given('I am on boardgame advanced search page', async function () {

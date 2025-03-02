@@ -4,22 +4,22 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@cucumber/cucumber": "^11.2.0",
-    "allure-commandline": "^2.32.2",
-    "allure-cucumberjs": "^3.2.0",
     "dotenv": "^16.4.7",
     "k6": "^0.0.0",
     "playwright": "^1.50.1",
     "playwright-core": "^1.50.1",
-    "ts-node": "^10.9.2",
-    "undici-types": "^6.20.0"
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.5"
+    "@types/node": "^22.13.5",
+    "allure-cucumberjs": "^3.2.0"
   },
   "scripts": {
-    "run_UI_tests": "npx cucumber-js test functional_tests/test/features"
+    "run_ui_tests": "npx cucumber-js --format allure-cucumberjs/reporter functional_tests/test/features",
+    "generate_allure_report": "allure generate ./allure-results -o ./allure-report",
+    "open_allure_report": "allure open ./allure-report"
   },
   "repository": {
     "type": "git",

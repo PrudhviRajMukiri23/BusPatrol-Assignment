@@ -1,12 +1,10 @@
-import { Before, After, BeforeAll, AfterAll, setDefaultTimeout, Status } from "@cucumber/cucumber";
+import { Before, After, BeforeAll, AfterAll, Status } from "@cucumber/cucumber";
 import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
 import * as envData from 'dotenv'
 import { fixtures } from "./fixtures";
 envData.config()
 
 let page: Page, browser: Browser, context: BrowserContext
-
-setDefaultTimeout(6000)
 
 BeforeAll(async () => {
     browser = await chromium.launch({headless: false, channel: process.env.channel})
@@ -28,7 +26,7 @@ After(async ({result, pickle}) => {
 
     if(result.status !== Status.FAILED) {
         let pickleName = pickle.name.replace(" ", "_")
-        await fixtures.page.screenshot({path: `./test-results/screenshots/${pickleName})-${timeStamp}`, type: 'png'})
+        await fixtures.page.screenshot({path: `./test-results/screenshots/${pickleName})-${timeStamp}.png`, type: 'png'})
     }
 
     const traceFileName = `traces-${timeStamp}.zip`
