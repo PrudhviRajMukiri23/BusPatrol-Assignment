@@ -21,9 +21,12 @@
 ```
 BusPatrol-Assignment/
 ├── performance_tests/
-│   ├── pages/            # Contains pages related performance tests
+│   ├── tests/            # Contains tests related performance test
 │   └── utils/            # Contains utility functions for performance testing
 ```
+## Execution of performance tests
+
+- I have used the shell code to execute the performance tests bt setting up required env values
 
 ![alt text](image.png)
 
