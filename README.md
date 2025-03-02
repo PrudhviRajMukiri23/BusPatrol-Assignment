@@ -16,6 +16,7 @@
 
 - **K6** (from Grafana) is an open-source load testing tool designed for testing the performance and scalability of applications.
 - I have used **K6 library** from Grafana for testing end points performance in web application.
+- I have used the shell script to execute the performance tests by setting up required env values.
 
 #### Performance Tests Directory Structure 
 ```
@@ -26,9 +27,14 @@ BusPatrol-Assignment/
 ```
 ## Execution of performance tests in local
 
-- I have used the shell code to execute the performance tests by setting up required env values.
-- One should have WSL get installed in their windows to run .sh file
-- Below is the command to execute performanse tests: 
+- Prerequisite: 
+    1. Install WSL
+    2. Install K6 and Playwright in WSL
+### Steps to run:
+
+- Navigate to root folder level in local
+- Open WSL in root folder level
+- Execute below command: 
 ```bash
 
     bash run_k6.sh
