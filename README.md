@@ -33,7 +33,7 @@ BusPatrol-Assignment/
 ### Steps to run:
 
 - Navigate to root folder level in local
-- Open WSL in root folder level
+- Open WSL in terminal
 - Execute below command: 
 ```bash
 
