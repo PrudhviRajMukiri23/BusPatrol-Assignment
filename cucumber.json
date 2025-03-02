@@ -1,0 +1,40 @@
+{
+    "default": {
+        "formatOptions": {
+            "snippetInterface":"async-await"
+        },
+        "paths": ["functional_tests/test/features"],
+        "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
+        "dryRun": false,
+        "requireModule": [
+            "ts-node/register"
+        ],
+        "format": [
+            "progress-bar",
+            "html:test-results/functional_tests_report.html",
+            "json:test-results/functional_tests_report.json",
+            "allure",
+            "summary",
+            "rerun:@rerun.txt"
+        ]
+    },     
+    
+    "rerun": {
+        "formatOptions": {
+            "snippetInterface":"async-await"
+        },
+        "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
+        "dryRun": false,
+        "requireModule": [
+            "ts-node/register"
+        ],
+        "format": [
+            "progress-bar",
+            "html:test-results/functional_tests_report.html",
+            "json:test-results/functional_tests_report.json",
+            "allure",
+            "summary",
+            "rerun:@rerun.txt"
+        ]
+    }
+}
