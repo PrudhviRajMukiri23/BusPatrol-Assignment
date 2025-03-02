@@ -14,8 +14,8 @@
 
 ## Performance Tests
 
-- K6 (from Grafana) is an open-source load testing tool designed for testing the performance and scalability of applications.
-- I have used K6 library from Grafana for testing end points performance in web application.
+- **K6** (from Grafana) is an open-source load testing tool designed for testing the performance and scalability of applications.
+- I have used **K6 library** from Grafana for testing end points performance in web application.
 
 #### Performance Tests Directory Structure 
 ```
@@ -24,11 +24,19 @@ BusPatrol-Assignment/
 │   ├── tests/            # Contains tests related performance test
 │   └── utils/            # Contains utility functions for performance testing
 ```
-## Execution of performance tests
+## Execution of performance tests in local
 
-- I have used the shell code to execute the performance tests bt setting up required env values
+- I have used the shell code to execute the performance tests by setting up required env values.
+- One should have WSL get installed in their windows to run .sh file
+- Below is the command to execute performanse tests: 
+```bash
 
-![alt text](image.png)
+    bash run_k6.sh
+
+```
+- Note: search_and_navigate test cases is mostly failing because the bbc website is not withstanding for too many requests as shown in below screenshot:
+
+![alt text](./readme-images/image.png)
 
 #### Refference for libraries 
 
