@@ -30,9 +30,10 @@ export const options = {
 }
 
 export default function () {
-    const searchTerm = 'Politics'
 
-    const url = `https://www.bbc.com/search?q=${searchTerm}`
+    console.log("value of search item::::"+__ENV.searchTerm)
+
+    const url = `https://www.bbc.com/search?q=${__ENV.searchTerm}`
 
     let result = http.get(url)
 
