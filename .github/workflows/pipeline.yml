@@ -68,6 +68,14 @@ jobs:
             logging
             allure-report
         if: always()
+      - name: Allure report
+        uses: afiore/action-allure-report@v0.1.0
+        with:
+          # Allure test result data dir
+          results-dir: allure-results
+          # Allure report target dir
+          report-dir: allure-report
+          
   
   K6_tests:
     runs-on: ubuntu-latest
