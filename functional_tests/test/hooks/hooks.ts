@@ -1,13 +1,17 @@
 import { Before, After, BeforeAll, AfterAll, Status } from "@cucumber/cucumber";
 import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
 import * as envData from 'dotenv'
+import BoardGame from "../../src/pages/board_game";
 import { fixtures } from "./fixtures";
+import CupcakeIpsum from "../../src/pages/cupcake_ipsum";
 envData.config()
 
 let page: Page, browser: Browser, context: BrowserContext
 
 BeforeAll(async () => {
     browser = await chromium.launch({headless: false, channel: process.env.channel})
+    fixtures.boardGameInstance = new BoardGame()
+    fixtures.cupcakeIpsumInstance = new CupcakeIpsum()
 })
 
 Before(async () => {

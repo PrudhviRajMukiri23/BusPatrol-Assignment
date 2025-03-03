@@ -29,4 +29,13 @@ export default class Asserts {
         }
     }
 
+    public static async getValueAttribute(page: Page, locator: string, text: string) {
+        try {
+            return await page.locator(locator).getAttribute('value')
+        } catch (error) {
+            console.error(`Error in matching default value: ${error.message}`);
+            throw error;
+        }
+    }
+
 }

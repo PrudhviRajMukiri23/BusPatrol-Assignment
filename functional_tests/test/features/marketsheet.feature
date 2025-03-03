@@ -1,7 +1,7 @@
-# Feature: Boardgame functionalities verification
+# Feature: marketsheet functionalities verification
 
 # Background: 
-#     Given When I travel to "https://boardgamegeek.com/advsearch/boardgame" as a guest user
+#     Given When I travel to "https://marketsheet.io/html-forms.html" as a guest user
 
 # Scenario: Verify game search functionality
 #     Given I am on boardgame advanced search page
