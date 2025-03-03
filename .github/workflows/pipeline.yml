@@ -47,10 +47,12 @@ jobs:
         run: bash run_ui.sh
         env:
           CI: 'true'
+          headless: true
       - name: 'Rerun UI tests'
         run: bash rerun_ui.sh
         env:
           CI: 'true'
+          headless: true
         if: failure()
       - name: 'Generate reports'
         run: npm run ui-report-gen
@@ -65,10 +67,6 @@ jobs:
             traces
             logging
             allure-report
-        if: always()
-      - name: 'Serve Allure report'
-        run: |
-          allure serve allure-report
         if: always()
   
   K6_tests:
