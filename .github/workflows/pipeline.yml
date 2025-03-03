@@ -64,6 +64,8 @@ jobs:
             logging
             allure-report
         if: always()
+      - name: Allure report V2
+        uses: QuintilianoNery/action-allure-report-V2@0.2.0
   
   K6_tests:
     runs-on: ubuntu-latest
