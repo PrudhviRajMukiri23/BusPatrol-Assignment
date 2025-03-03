@@ -5,4 +5,4 @@ npm run run_ui_tests
 allure generate ./allure-results -o ./allure-report
 
 # run allure report open
-allure open ./allure-report
+#allure open ./allure-report

@@ -1,13 +1,13 @@
 name: Test Suite
 on:
-  schedule:
-    - cron: '30 3,11 * * *'
-    # 9:00 AM IST is 3:30 AM UTC.
-    # 5:00 PM IST is 11:30 AM UTC.
+  # schedule:
+  #   - cron: '30 3,11 * * *'
+  #   # 9:00 AM IST is 3:30 AM UTC.
+  #   # 5:00 PM IST is 11:30 AM UTC.
   push:
     branches:
       - main
-      - Prudhvi-adhoc
+      - feature/Prudhvi-adhoc
   pull_request:
     branch:
       - main
@@ -34,10 +34,10 @@ jobs:
         env:
           LOCALBROWSER: 'true'
       - name: 'Set up JDK'
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'
+          distribution: 'temurin'
       - name: 'Install Allure Commandline'
         run: |
           curl -o allure.zip -L "https://github.com/allure-framework/allure2/releases/download/2.17.2/allure-2.17.2.zip"
@@ -47,10 +47,12 @@ jobs:
         run: bash run_ui.sh
         env:
           CI: 'true'
+          headless: true
       - name: 'Rerun UI tests'
         run: bash rerun_ui.sh
         env:
           CI: 'true'
+          headless: true
         if: failure()
       - name: 'Generate reports'
         run: npm run ui-report-gen
@@ -65,10 +67,6 @@ jobs:
             traces
             logging
             allure-report
-        if: always()
-      - name: 'Serve Allure report'
-        run: |
-          allure serve allure-report
         if: always()
   
   K6_tests:
