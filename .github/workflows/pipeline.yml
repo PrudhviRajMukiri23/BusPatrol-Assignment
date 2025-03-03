@@ -86,5 +86,12 @@ jobs:
         run: bash run_k6.sh
         env:
           CI: 'true'
+      - name: 'Upload a Build Artifact'
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: ui-artifact
+          path: |
+            performance-reports
+        if: always()
             
         
