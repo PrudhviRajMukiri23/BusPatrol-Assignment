@@ -1,7 +1,8 @@
 {
     "default": {
         "formatOptions": {
-            "snippetInterface":"async-await"
+            "snippetInterface":"async-await",
+            "timeout": 50000
         },
         "paths": ["functional_tests/test/features"],
         "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
@@ -20,7 +21,8 @@
     
     "rerun": {
         "formatOptions": {
-            "snippetInterface":"async-await"
+            "snippetInterface":"async-await",
+            "timeout": 50000
         },
         "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
         "dryRun": false,

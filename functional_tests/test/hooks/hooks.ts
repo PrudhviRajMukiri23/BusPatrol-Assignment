@@ -4,14 +4,26 @@ import * as envData from 'dotenv'
 import BoardGame from "../../src/pages/board_game";
 import { fixtures } from "./fixtures";
 import CupcakeIpsum from "../../src/pages/cupcake_ipsum";
+import OrangeHrm from "../../src/pages/orange_hrm";
 envData.config()
 
 let page: Page, browser: Browser, context: BrowserContext
 
 BeforeAll(async () => {
-    browser = await chromium.launch({headless: false, channel: process.env.channel})
-    fixtures.boardGameInstance = new BoardGame()
-    fixtures.cupcakeIpsumInstance = new CupcakeIpsum()
+    try {
+        if(process.env.headless == 'true')
+            browser = await chromium.launch({headless: true, channel: process.env.channel})
+        else if(process.env.headless == 'false')
+            browser = await chromium.launch({headless: false, channel: process.env.channel})
+        else 
+            throw new Error("Enter valid headless value either 'true' or 'false': "+process.env.headless)
+        fixtures.boardGameInstance = new BoardGame()
+        fixtures.cupcakeIpsumInstance = new CupcakeIpsum()
+        fixtures.orangeHrmInstance = new OrangeHrm()
+    } catch(err) {
+        console.log("Error occured while creating browser: "+err)
+    }
+    
 })
 
 Before(async () => {

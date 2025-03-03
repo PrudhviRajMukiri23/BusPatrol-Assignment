@@ -61,3 +61,4 @@ BusPatrol-Assignment/
 - k6 Grafana node package [https://www.npmjs.com/package/k6]
 - xk6 - [https://k6.io/blog/extending-k6-with-xk6/]
 - cucumber.js ref [https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md]
+- winston logger [https://www.npmjs.com/package/winston]
