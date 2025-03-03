@@ -8,7 +8,7 @@ export default class OrangeHrmLocators {
         description: "Password input field"
     }
     orangeHrm_loginButton = {
-        xpath: "//button[@type='submit' and text()=' Login ']",
+        xpath: "//button[@type='submit']",
         description: "Login button xpath"
     }
     orangeHrm_pageHeader = {
