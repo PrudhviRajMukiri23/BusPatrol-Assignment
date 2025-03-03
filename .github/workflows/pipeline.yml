@@ -54,10 +54,6 @@ jobs:
           CI: 'true'
           headless: true
         if: failure()
-      - name: 'Generate reports'
-        run: npm run ui-report-gen
-        env:
-          CI: 'true'
       - name: 'Upload a Build Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
