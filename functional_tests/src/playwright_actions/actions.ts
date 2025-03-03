@@ -18,9 +18,14 @@ class PlaywrightActions {
         console.log(message+": "+await page.locator(locator).textContent())
     }
 
+    async returnLocatorTextContent(page: Page, locator: string) {
+        if(typeof await page.locator(locator).textContent() === 'string')
+            return await page.locator(locator).textContent()
+    }
+
     async goToUrl(page: Page, url: string) {
         try {
-            await page.goto(url)
+            await page.goto(url, {waitUntil: 'load'})
         } catch(err) {
             throw new Error(`Failed to navigate to ${url}: ${err.message}`)
         }
@@ -34,11 +39,29 @@ class PlaywrightActions {
         }
     }
 
+    async checkBox(page: Page, locatorPath: string) {
+        try {
+            await page.locator(locatorPath).check()
+        } catch(err) {
+            throw new Error(`Failed to check on element with locator: ${locatorPath}. Error: ${err.message}`)
+        }
+    }
+
     async isElementVisible(page: Page, xpath: string) {
         try {
             await page.waitForSelector(xpath, { state: 'visible' })
             const isVisible = await page.locator(xpath).isVisible()
             return isVisible
+        } catch(err) {
+            throw new Error(`Failed while finding element with xpath of: ${xpath}. Error: ${err.message}`)
+        }
+    }
+
+    async getLocatorsCount(page: Page, xpath: string) {
+        try {
+            await page.waitForSelector(xpath, { state: 'visible' })
+            const values = (await page.$$(xpath)).length
+            return values
         } catch(err) {
             throw new Error(`Failed while finding element with xpath of: ${xpath}. Error: ${err.message}`)
         }

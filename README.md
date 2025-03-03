@@ -12,6 +12,9 @@
 
 ## Functional Tests
 
+- **Playwright** is an open-source automation framework developed by Microsoft for testing and interacting with web applications.
+- I have used **Playwright** along with **Cucumber** to achieve behaviour-driven development (BDD).
+- I have use
 ## Performance Tests
 
 - **K6** (from Grafana) is an open-source load testing tool designed for testing the performance and scalability of applications.
@@ -52,7 +55,10 @@ BusPatrol-Assignment/
 - cucumber plugin in vscode [https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official]
 - allure-cucumberjs [https://www.npmjs.com/package/allure-cucumberjs]
 - allure-commandline [https://www.npmjs.com/package/allure-commandline]
+- Install allure for cucumber [https://allurereport.org/docs/cucumberjs/]
 - ts-node [https://www.npmjs.com/package/ts-node]
 - k6 Grafana [https://grafana.com/docs/k6/latest/set-up/install-k6/]
 - k6 Grafana node package [https://www.npmjs.com/package/k6]
 - xk6 - [https://k6.io/blog/extending-k6-with-xk6/]
+- cucumber.js ref [https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md]
+- winston logger [https://www.npmjs.com/package/winston]

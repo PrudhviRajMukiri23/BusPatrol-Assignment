@@ -9,7 +9,7 @@ export default class BoardGame extends PlaywrightActions {
 
     constructor() {
         super()
-        this.locators = new BoardGameLocators
+        this.locators = new BoardGameLocators()
     }
 
     public getLocators() {
