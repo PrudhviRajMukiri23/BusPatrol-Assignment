@@ -20,26 +20,41 @@ export default class CupcakeIpsum extends PlaywrightActions {
         return await this.getPageTitle(page)
     }
 
-    public async elementVisibleCheck(page: Page, expectedCount: Number, value: string) {
+    public async clickGenerate(page: Page, value: string) {
+        try {
+            if(this.locators.cupcakeIpsum_generateButton.description.includes(value)) {
+                await this.clickOnElement(page, this.locators.cupcakeIpsum_generateButton.xpath)
+            } else {
+                throw new Error(`Invalid value: "${value}".`);
+            }
+        } catch(error) {
+            console.error('Error clicking on radio button: ', error);
+            throw new Error('Failed to click on radio button: '+error);
+        }
+    }
+
+    public async elementAbsenceCheck(page: Page, value: string) {
         try{
             if(this.locators.cupcakeIpsum_copyButton.description.includes(value)) {
-                if(!(await this.isElementVisible(page, this.locators.cupcakeIpsum_copyButton.xpath))) {
-                    
+                if(await this.isElementVisible(page, this.locators.cupcakeIpsum_copyButton.xpath)) {
+                    throw new Error(`Copy button found: Element is visible "${value}".`)
                 }
             }
         } catch(error) {
-            console.error('Error in getting instances: ', error);
-            throw new Error('Failed to get instance of element: '+error);
+            console.error('`Copy button found before submit: ', error);
+            throw new Error('Failed copy button visible before submit: '+error);
         }
     }
 
     public async countInstances(page: Page, expectedCount: Number, value: string) {
         try{
             if(this.locators.cupcakeIpsum_cupCakeIpsumDolorSitAmetInstances.description.includes(value)) {
+                page.waitForSelector(this.locators.cupcakeIpsum_cupCakeIpsumDolorSitAmetInstances.xpath)
                 let count = await this.getLocatorsCount(page, this.locators.cupcakeIpsum_cupCakeIpsumDolorSitAmetInstances.xpath)
                 if(count !== expectedCount) {
                     throw new Error(`Text mismatch: Locator count "${count}" does not match the expected text "${expectedCount}".`)
                 }
+                await page.waitForTimeout(2000)
             }
         } catch(error) {
             console.error('Error in getting instances: ', error);

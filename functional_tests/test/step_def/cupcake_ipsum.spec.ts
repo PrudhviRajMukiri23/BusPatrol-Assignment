@@ -28,30 +28,14 @@ When('I check off {string}', async function (radioButtonType) {
     await fixtures.cupcakeIpsumInstance.selectButton(fixtures.page, radioButtonType)
 });
 
-When('I see {int} instance of {string} on the page', async function (int, string) {
+When('I do not see a {string} button', async function (string) {
+    await fixtures.cupcakeIpsumInstance.elementAbsenceCheck(fixtures.page, string)
+});
+
+When('I click {string}', async function (string) {
+    await fixtures.cupcakeIpsumInstance.clickGenerate(fixtures.page, string)
+});
+
+Then('I see {int} instance of {string} on the page', async function (int, string) {
     await fixtures.cupcakeIpsumInstance.countInstances(fixtures.page, int, string)
 });
-
-? And I do not see a "Copy to Clipboard" button
-Undefined. Implement with the following snippet:
-
-When('I do not see a {string} button', async function (string) {
-    await fixtures.cupcakeIpsumInstance.elementVisibleCheck(fixtures.page, string)
-});
-
-// ? And I click "Generate"
-// Undefined. Implement with the following snippet:
-
-// When('I click {string}', async function (string) {
-// // Write code here that turns the phrase above into concrete actions
-// return 'pending';
-// });
-
-// ? Then I see 2 instance of "Cupcake ipsum dolor sit amet" on the page
-// Undefined. Implement with the following snippet:
-
-// Then('I see {int} instance of {string} on the page', async function (int, string) {
-// // Then('I see {float} instance of {string} on the page', async function (float, string) {
-// // Write code here that turns the phrase above into concrete actions
-// return 'pending';
-// });

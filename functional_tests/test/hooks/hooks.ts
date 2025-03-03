@@ -25,13 +25,14 @@ Before(async () => {
 
 After(async ({result, pickle}) => {
 
-    await fixtures.page.waitForLoadState('load') 
+    await fixtures.page.waitForLoadState('load')
     const timeStamp = new Date().toISOString().replace(/[:.-]/g, '_')
 
-    if(result.status !== Status.FAILED) {
-        let pickleName = pickle.name.replace(" ", "_")
-        await fixtures.page.screenshot({path: `./test-results/screenshots/${pickleName})-${timeStamp}.png`, type: 'png'})
+    var pickleName = pickle.name.replace(" ", "_")
+    if(result.status === Status.FAILED) {
+        await fixtures.page.screenshot({path: `./test-results/screenshots/FAILED-${pickleName})-${timeStamp}.png`, type: 'png', fullPage: true})
     }
+    await fixtures.page.screenshot({path: `./test-results/screenshots/PASSED-${pickleName})-${timeStamp}.png`, type: 'png', fullPage: true})
 
     const traceFileName = `traces-${timeStamp}.zip`
     await fixtures.context.tracing.stop({ path: `./traces/${traceFileName}` })

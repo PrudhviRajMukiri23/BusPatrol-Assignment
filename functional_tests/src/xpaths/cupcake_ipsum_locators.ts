@@ -23,5 +23,10 @@ export default class CupcakeIpsumLocators {
         xpath: "//button[@id='copy_button']",
         description: 'Copy to clipboard button'
     }
+    cupcakeIpsum_generateButton = {
+        xpath: "//button[@id='generate_button']",
+        description: 'Generate button xpath'
+    }
+
 
 }
