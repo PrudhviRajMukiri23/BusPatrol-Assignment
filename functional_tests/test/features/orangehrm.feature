@@ -13,7 +13,7 @@ Feature: Boardgame functionalities verification
     And I click on the Profile displayed on Right top corner of Screen
     And I see 'About', 'Support', 'Change Passowrd', 'Logout' options
     And I click on 'Logout'
-    # Then I am logged out and directed to the login Page.
+    Then I am logged out and directed to the login Page.
 
     Examples:
       | username | password   |

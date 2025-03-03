@@ -20,7 +20,8 @@
   "scripts": {
     "run_ui_tests": "npx cucumber-js --format allure-cucumberjs/reporter functional_tests/test/features",
     "generate_allure_report": "allure generate ./allure-results -o ./allure-report",
-    "open_allure_report": "allure open ./allure-report"
+    "open_allure_report": "allure open ./allure-report",
+    "rerun_ui_tests": "npx cucumber-js -p rerun --format allure-cucumberjs/reporter @rerun.txt"
   },
   "repository": {
     "type": "git",
