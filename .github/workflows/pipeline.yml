@@ -1,0 +1,92 @@
+name: Test Suite
+on:
+  schedule:
+    - cron: '30 3,11 * * *'
+    # 9:00 AM IST is 3:30 AM UTC.
+    # 5:00 PM IST is 11:30 AM UTC.
+  push:
+    branches:
+      - main
+  pull_request:
+    branch:
+      - main
+  workflow_dispatch:
+
+jobs:
+  functional_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout main branch'
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+      - name: 'Install dependencies'
+        run: npm ci
+        env:
+          LOCALBROWSER: 'true'
+      - name: 'Install Playwright browsers'
+        run: npx playwright install --with-deps
+        env:
+          LOCALBROWSER: 'true'
+      - name: 'Set up JDK'
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - name: 'Install Allure Commandline'
+        run: |
+          curl -o allure.zip -L "https://github.com/allure-framework/allure2/releases/download/2.17.2/allure-2.17.2.zip"
+          unzip allure.zip -d /opt
+          sudo ln -s /opt/allure-2.17.2/bin/allure /usr/local/bin/allure
+      - name: 'Run UI tests'
+        run: bash run_ui.sh
+        env:
+          CI: 'true'
+      - name: 'Rerun UI tests'
+        run: bash rerun_ui.sh
+        env:
+          CI: 'true'
+        if: failure()
+      - name: 'Generate reports'
+        run: npm run ui-report-gen
+        env:
+          CI: 'true'
+      - name: 'Upload a Build Artifact'
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: ui-artifact
+          path: |
+            test-results
+            traces
+            logging
+            allure-report
+        if: always()
+      - name: 'Serve Allure report'
+        run: |
+          allure serve allure-report
+        if: always()
+  
+  K6_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout main branch'
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: 'Install dependencies'
+        run: npm ci
+      - name: 'Install K6'
+        uses: grafana/setup-k6-action@v1
+      - name: 'Run K6 tests'
+        run: bash_k6.sh
+        env:
+          CI: 'true'
+            
+        
