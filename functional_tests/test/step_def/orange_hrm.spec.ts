@@ -25,51 +25,27 @@ When('I click on {string} button on left', async function (mainMenuValue) {
     await fixtures.orangeHrmInstance.selectMainMenuOption(fixtures.page, mainMenuValue)
 });
 
-// ? And I see Records Found on page
-// Undefined. Implement with the following snippet:
+When('I see Records Found on page', async function () {
+    await fixtures.orangeHrmInstance.veifyAdminRecords(fixtures.page)
+});
 
-//   When('I see Records Found on page', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
+When('Print the result displayed for Records Found.', async function () {
+    await fixtures.orangeHrmInstance.printAdminTableData(fixtures.page)
+});
 
-// ? And Print the result displayed for Records Found.
-// Undefined. Implement with the following snippet:
+When('I click on the Profile displayed on Right top corner of Screen', async function () {
+    await fixtures.orangeHrmInstance.clickProfileMenu(fixtures.page)
+});
 
-//   When('Print the result displayed for Records Found.', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
+When('I see {string}, {string}, {string}, {string} options', async function (string, string2, string3, string4) {
+    let list = [string, string2, string3, string4]
+    await fixtures.orangeHrmInstance.verifyProfileMenuOptions(fixtures.page, list)
+});
 
-// ? And I click on the Profile displayed on Right top corner of Screen
-// Undefined. Implement with the following snippet:
+When('I click on {string}', async function (logout) {
+    await fixtures.orangeHrmInstance.clickOnLogout(fixtures.page, logout)
+});
 
-//   When('I click on the Profile displayed on Right top corner of Screen', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
-
-// ? And I see About, Support, Change Passowrd, Logout options
-// Undefined. Implement with the following snippet:
-
-//   When('I see About, Support, Change Passowrd, Logout options', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
-
-// ? And I click on Logout
-// Undefined. Implement with the following snippet:
-
-//   When('I click on Logout', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
-
-// ? Then I am logged out and directed to the login Page.
-// Undefined. Implement with the following snippet:
-
-//   Then('I am logged out and directed to the login Page.', async function () {
-//     // Write code here that turns the phrase above into concrete actions
-//     return 'pending';
-//   });
+Then('I am logged out and directed to the login Page.', async function () {
+    await fixtures.orangeHrmInstance.verifyLoginPage(fixtures.page)
+});

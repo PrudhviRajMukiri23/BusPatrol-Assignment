@@ -19,7 +19,8 @@ class PlaywrightActions {
     }
 
     async returnLocatorTextContent(page: Page, locator: string) {
-        return await page.locator(locator).textContent()
+        if(typeof await page.locator(locator).textContent() === 'string')
+            return await page.locator(locator).textContent()
     }
 
     async goToUrl(page: Page, url: string) {
