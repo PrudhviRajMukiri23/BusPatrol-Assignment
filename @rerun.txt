@@ -1,0 +1,3 @@
+functional_tests\test\features\boardgame.feature:6
+functional_tests\test\features\cupcakeipsum.feature:6
+functional_tests\test\features\orangehrm.feature:20
