@@ -12,8 +12,8 @@
         ],
         "format": [
             "progress-bar",
-            "html:test-results/functional_tests_report.html",
-            "json:test-results/functional_tests_report.json",
+            "html:test-results/functional-tests-report.html",
+            "json:test-results/functional-tests-report.json",
             "summary",
             "rerun:@rerun.txt"
         ]
