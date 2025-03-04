@@ -44,7 +44,7 @@ jobs:
           CI: 'true'
           headless: true
         if: failure()
-      - name: 'Upload a Build Artifact'
+      - name: 'Upload ui Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
           name: ui-artifact
@@ -73,7 +73,7 @@ jobs:
         run: bash run_k6.sh
         env:
           CI: 'true'
-      - name: 'Upload a Build Artifact'
+      - name: 'Upload k6 Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
           name: ui-artifact
