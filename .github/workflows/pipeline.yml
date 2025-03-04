@@ -76,7 +76,7 @@ jobs:
       - name: 'Upload k6 Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
-          name: ui-artifact
+          name: k6-artifact
           path: |
             performance-reports
         if: always()
