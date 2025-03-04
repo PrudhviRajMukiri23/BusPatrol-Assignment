@@ -1,4 +1,5 @@
 import { expect, Page } from "@playwright/test";
+import logger from "../../../utils/logger";
 
 export default class Asserts {
 
@@ -6,7 +7,7 @@ export default class Asserts {
         try {
             await expect(page).toHaveTitle(title);
         } catch (error) {
-            console.error(`Error in assertTitle: ${error.message}`);
+            logger.error(`Error in assertTitle: ${error.message}`);
             throw error;
         }
     }
@@ -15,7 +16,7 @@ export default class Asserts {
         try {
             expect(await page.title()).toContain(title);
         } catch (error) {
-            console.error(`Error in assertTitleContains: ${error.message}`);
+            logger.error(`Error in assertTitleContains: ${error.message}`);
             throw error;
         }
     }
@@ -24,7 +25,7 @@ export default class Asserts {
         try {
             expect(await page.locator(locator)).toContainText(text);
         } catch (error) {
-            console.error(`Error in assertValueContains: ${error.message}`);
+            logger.error(`Error in assertValueContains: ${error.message}`);
             throw error;
         }
     }
@@ -33,7 +34,7 @@ export default class Asserts {
         try {
             return await page.locator(locator).getAttribute('value')
         } catch (error) {
-            console.error(`Error in matching default value: ${error.message}`);
+            logger.error(`Error in matching default value: ${error.message}`);
             throw error;
         }
     }
