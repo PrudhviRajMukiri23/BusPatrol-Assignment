@@ -62,12 +62,6 @@ After(async ({result, pickle}) => {
             logger.info(`Test passed, screenshot captured for ${pickleName}`);
         }
 
-        const tracesFolder = './traces';
-        if (!fs.existsSync(tracesFolder)) {
-            fs.mkdirSync(tracesFolder, { recursive: true });
-            logger.info(`Created traces folder at ${tracesFolder}`);
-        }
-
         const traceFileName = `traces-${timeStamp}.zip`;
         await fixtures.context.tracing.stop({ path: `./traces/${traceFileName}` });
         logger.info(`Trace file saved: ${traceFileName}`);

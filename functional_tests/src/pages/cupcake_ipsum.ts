@@ -127,5 +127,4 @@ export default class CupcakeIpsum extends PlaywrightActions {
             throw new Error(`Failed to select button: ${error.message}`)
         }
     }
-    }
 }
