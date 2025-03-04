@@ -3,12 +3,10 @@
 ### Actions Points Covered
 1. Added the **functional_tests** and **performance_tests** test cases.
 2. Implemented in **Page Object Model**, **Modular approach** and **Behavioral Driven Development**.
-3. Implemented **Singleton class** file to serve single instance at at time.
-4. Handled the **parallel** execution.
-5. configured **gitHub Actions yaml** with artifacts publish feature.
-6. **Reports** and **traces** generated and published in pipeline.
-7. Custom **logging** and **Error handling** were implemented.
-8. Implemented the feature to run test in **browserstack** and **lambdatest**.
+3. Handled the **parallel** execution.
+4. configured **gitHub Actions yaml** with artifacts publish feature.
+5. **Reports** and **traces** generated and published in pipeline.
+6. Custom **logging** and **Error handling** were implemented.
 
 ## Functional Tests
 
@@ -37,17 +35,21 @@ BusPatrol-Assignment/
 
 ## Execution of functional tests in WSL
 
-- Prerequisite: 
+- Pre-setup: 
     1. Install WSL
     2. Install Playwright in WSL
 
 ### Steps to run in WSL:
 - Navigate to root folder level in local
-- Open WSL in terminal
+- Set env values of __channel=chrome or msedge__ & __headless=true or false__ in **.env** file in root level
+- Open WSL in terminal in root level
+
 - Execute below command: 
 ```bash
 
-    bash run_k6.sh
+    npm i # to install all dependencies required
+
+    bash run_ui.sh # to run the ui test cases
 
 ```
 
@@ -58,25 +60,44 @@ BusPatrol-Assignment/
 
 ### Steps to run in WSL:
 - Navigate to root folder level in local
+- Set env values of __channel=chrome or msedge__ & __headless=true or false__ in **.env** file in root level
+
 - Execute below command: 
 ```bash
 
-    npm run_ui_tests # to run functional test cases
-    npm rerun_ui_tests # to reren failed test cases
+    npm i # to install all dependencies required
 
+    npm run_ui_tests # to run functional test cases
+
+    npm rerun_ui_tests # to rerun failed test cases
+
+```
+- Note: By running ui test cases, by default the report get generated in below path:
+
+```
+BusPatrol-Assignment/
+├── test-results/
+│   ├── json-reports/    # Contains index.html file report
 ```
 
 ## Reports of functional tests
 
 - After running test cases in **test-results**, .json file will be generated. Based on that we will generate the cucumber html report.
+- **index.html** folder shown in below path is the report file
 - Run below command in wsl/windows to generate report.
 
+```
+BusPatrol-Assignment/
+├── test-results/
+│   ├── json-reports/    # Contains index.html file report
+```
+
 ```bash
-
-    npm run_ui_report_gen # to generate the cucumber html customised reports
-
+    npm run_ui_report_gen # to generate the index.html file based on functional-tests-report in test-results folder
 ```
 ![alt text](/readme-images/fun_test_report.png)
+
+
 
 ## Performance Tests
 
@@ -92,28 +113,35 @@ BusPatrol-Assignment/
 │   └── utils/            # Contains utility functions for performance testing
 ```
 
-## Execution of performance tests in local
+## Execution of performance tests in WSL
 
-- Prerequisite: 
+- Pre setup: 
     1. Install WSL
-    2. Install K6 and Playwright in WSL
+    2. Install K6 in WSL
+    3. Install Playwright in WSL
 
 ### Steps to run:
 - Navigate to root folder level in local
 - Open WSL in terminal
 - Execute below command: 
+
 ```bash
 
     bash run_k6.sh
 
 ```
-- Note: search_and_navigate test cases is mostly failing because the bbc website is not withstanding for too many requests as shown in below screenshot:
+- Note: __search_and_navigate__ test cases is mostly failing because the bbc website is not withstanding for too many requests as shown in below screenshot:
 
 ![alt text](./readme-images/image.png)
 
 ## Reports of performance tests
 
 - After running test cases reports will be generated in **performance-reports** folder.
+
+```
+BusPatrol-Assignment/
+├── performance-reports/     # Contains performance test html file reports
+```
 
 ![alt text](./readme-images/per_test_report1.png)
 ![alt text](./readme-images/per_test_report2.png)
@@ -129,8 +157,7 @@ BusPatrol-Assignment/
 ![alt text](./readme-images/pipeline.png)
 
 
-
-#### Refference for libraries 
+## References libraries / links
 
 - node.js [https://nodejs.org/en/download/package-manager]
 - playwright (install typescript) [https://www.npmjs.com/package/playwright]
