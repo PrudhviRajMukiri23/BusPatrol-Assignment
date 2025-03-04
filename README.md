@@ -51,6 +51,8 @@ BusPatrol-Assignment/
 
     bash run_ui.sh # to run the ui test cases
 
+    bash rerun_ui.sh # to rerun the ui test cases
+
 ```
 
 ## Execution of functional tests in Windows
@@ -115,7 +117,7 @@ BusPatrol-Assignment/
 
 ## Execution of performance tests in WSL
 
-- Pre setup: 
+- Pre-setup: 
     1. Install WSL
     2. Install K6 in WSL
     3. Install Playwright in WSL
@@ -126,8 +128,9 @@ BusPatrol-Assignment/
 - Execute below command: 
 
 ```bash
+    npm i           # to install all dependencies required
 
-    bash run_k6.sh
+    bash run_k6.sh  # to reun the k6 test cases
 
 ```
 - Note: __search_and_navigate__ test cases is mostly failing because the bbc website is not withstanding for too many requests as shown in below screenshot:
