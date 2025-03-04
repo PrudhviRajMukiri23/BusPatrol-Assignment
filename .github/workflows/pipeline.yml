@@ -51,7 +51,7 @@ jobs:
           path: |
             test-results
             traces
-            logging
+            logs
         if: always()
   
   K6_tests:
