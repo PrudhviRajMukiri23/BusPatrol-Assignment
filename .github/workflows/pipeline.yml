@@ -33,16 +33,6 @@ jobs:
         run: npx playwright install --with-deps
         env:
           LOCALBROWSER: 'true'
-      - name: 'Set up JDK'
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-      - name: 'Install Allure Commandline'
-        run: |
-          curl -o allure.zip -L "https://github.com/allure-framework/allure2/releases/download/2.17.2/allure-2.17.2.zip"
-          unzip allure.zip -d /opt
-          sudo ln -s /opt/allure-2.17.2/bin/allure /usr/local/bin/allure
       - name: 'Run UI tests'
         run: bash run_ui.sh
         env:
@@ -62,10 +52,7 @@ jobs:
             test-results
             traces
             logging
-            allure-report
         if: always()
-      - name: Allure report V2
-        uses: QuintilianoNery/action-allure-report-V2@0.2.0
   
   K6_tests:
     runs-on: ubuntu-latest

@@ -25,7 +25,7 @@ class PlaywrightActions {
 
     async goToUrl(page: Page, url: string) {
         try {
-            await page.goto(url, {waitUntil: 'load'})
+            await page.goto(url, {waitUntil: 'domcontentloaded'})
         } catch(err) {
             throw new Error(`Failed to navigate to ${url}: ${err.message}`)
         }
