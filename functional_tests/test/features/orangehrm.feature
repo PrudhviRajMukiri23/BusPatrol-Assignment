@@ -1,4 +1,4 @@
-Feature: Boardgame functionalities verification
+Feature: OrangeHrm functionalities verification
 
   Background:
     Given When I navigated to "https://opensource-demo.orangehrmlive.com"

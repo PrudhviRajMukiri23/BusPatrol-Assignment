@@ -3,18 +3,18 @@ import logger from "../../../utils/logger";
 
 export default class Asserts {
 
-    public static async assertTitle(title: string, page: Page) {
+    public static async assertTitle(expectedTitle: string, page: Page) {
         try {
-            await expect(page).toHaveTitle(title);
+            await expect(page).toHaveTitle(expectedTitle);
         } catch (error) {
             logger.error(`Error in assertTitle: ${error.message}`);
             throw error;
         }
     }
 
-    public static async assertTitleContains(title: string, page: Page) {
+    public static async assertTitleContains(expectedTitle: string, page: Page) {
         try {
-            expect(await page.title()).toContain(title);
+            expect(await page.title()).toContain(expectedTitle);
         } catch (error) {
             logger.error(`Error in assertTitleContains: ${error.message}`);
             throw error;

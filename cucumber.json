@@ -2,7 +2,7 @@
     "default": {
         "formatOptions": {
             "snippetInterface":"async-await",
-            "timeout": 50000
+            "timeout": 10000
         },
         "paths": ["functional_tests/test/features"],
         "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
@@ -16,13 +16,14 @@
             "json:test-results/functional-tests-report.json",
             "summary",
             "rerun:@rerun.txt"
-        ]
+        ],
+        "parallel": 2
     },     
     
     "rerun": {
         "formatOptions": {
             "snippetInterface":"async-await",
-            "timeout": 50000
+            "timeout": 10000
         },
         "require": ["functional_tests/test/step_def/*.spec.ts", "functional_tests/test/hooks/*.ts"],
         "dryRun": false,
@@ -35,6 +36,7 @@
             "json:test-results/functional-tests-report.json",
             "summary",
             "rerun:@rerun.txt"
-        ]
+        ],
+        "parallel": 2
     }
 }

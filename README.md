@@ -16,6 +16,9 @@
 - I have used **Playwright** along with **Cucumber** to achieve behaviour-driven development (BDD).
 - I have used shell script to execute the functional tests.
 
+- _**Note: One of the usecase url i.e.,[https://marksheet.io/html-forms.html](https://marksheet.io/html-forms.html) is not as expected. It is not having required signup form. So I have changes the usecase according to the new url changes.**_
+![alt text](/readme-images/image2.png)
+
 #### Functional Tests Directory Structure 
 
 ```
