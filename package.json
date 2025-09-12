@@ -6,7 +6,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "k6": "^0.0.0",
-    "multiple-cucumber-html-reporter": "^3.9.2",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "ts-node": "^10.9.2",
     "winston": "^3.17.0",
     "@cucumber/cucumber": "^11.2.0",
