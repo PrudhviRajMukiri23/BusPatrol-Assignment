@@ -10,7 +10,7 @@
     "ts-node": "^10.9.2",
     "winston": "^3.17.0",
     "@cucumber/cucumber": "^11.2.0",
-    "@playwright/test": "^1.50.1"
+    "@playwright/test": "^1.56.0"
   },
   "scripts": {
     "run_ui_tests": "npx cucumber-js functional_tests/test/features",
